@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.SdkSystemSetting;
-import software.amazon.awssdk.http.crt.AwsCrtAsyncHttpClient;
+//import software.amazon.awssdk.http.crt.AwsCrtAsyncHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -28,7 +28,7 @@ public class UnicornPostLocationHandler implements RequestHandler<APIGatewayProx
                 .builder()
                 .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                 .region(Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable())))
-                .httpClientBuilder(AwsCrtAsyncHttpClient.builder())
+//                .httpClientBuilder(AwsCrtAsyncHttpClient.builder())
                 .build();
     }
 

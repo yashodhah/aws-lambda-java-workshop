@@ -1,5 +1,8 @@
 package com.unicorn.location;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class UnicornLocation {
 
     private String unicornName;

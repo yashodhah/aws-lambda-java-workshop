@@ -1,6 +1,7 @@
 package com.unicorn.location;
 
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
