@@ -27,6 +27,9 @@ In this module you will learn how SnapStart addresses Java function performance.
 
 ![Unicorn Stock Broker API](resources/unicorn-stock-broker-inital.png)
 
+Introduction to Quarkus on AWS Lambda
+In this module you will learn how to bring your Quarkus application to AWS Lambda with minimal effort and iteratively apply optimizations to get the best out of your Serverless Java experience with Quarkus. You will get an overview of best practices, performance trade-offs, and the design considerations for each step to be able to make well-informed decisions when bringing Quarkus applications to AWS Lambda.
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
