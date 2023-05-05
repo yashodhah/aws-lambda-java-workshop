@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  unicorn-location-api
+
+  This API allows you to store the location of your favorite Unicorns
+
+Globals:
+  Function:
+    Timeout: 20
+
+Resources:
+  UnicornLocationTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: unicorn-locations
+  UnicornLocationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: unicorn-location-api-post-graal-q
+      CodeUri: UnicornLocationFunction/target/function.zip
+      Runtime: provided
+      MemorySize: 1024
+      Handler: not.used.in.provided.runtime
+      Events:
+        UnicornLocationEvent:
+          Type: Api
+          Properties:
+            Path: /locations-graal
+            Method: post
+      Policies:
+        - DynamoDBWritePolicy:
+            TableName: !Ref UnicornLocationTable
+
+Outputs:
+  UnicornLocationApi:
+    Description: "API Gateway endpoint URL for Prod stage for Unicorn Location function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/locations-graal"
+  UnicornLocationFunction:
+    Description: "Unicorn Location Lambda Function ARN"
+    Value: !GetAtt UnicornLocationFunction.Arn
+  UnicornLocationFunctionIamRole:
+    Description: "Implicit IAM Role created for Unicorn Location function"
+    Value: !GetAtt UnicornLocationFunctionRole.Arn
+
