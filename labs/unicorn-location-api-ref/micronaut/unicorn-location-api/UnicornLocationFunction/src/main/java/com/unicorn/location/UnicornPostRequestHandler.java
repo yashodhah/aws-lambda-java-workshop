@@ -1,10 +1,8 @@
-package com.unicorn.location.handler;
+package com.unicorn.location;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.jr.ob.JSON;
-import com.unicorn.location.model.UnicornLocation;
-import com.unicorn.location.service.UnicornLocationService;
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.function.aws.MicronautRequestHandler;
 import jakarta.inject.Inject;
@@ -22,7 +20,7 @@ public class UnicornPostRequestHandler extends MicronautRequestHandler<APIGatewa
     public APIGatewayProxyResponseEvent execute(APIGatewayProxyRequestEvent input) {
         try {
             UnicornLocation unicornLocation = JSON.std.beanFrom(UnicornLocation.class, input.getBody());
-            unicornLocationService.createUnicorn(unicornLocation);
+            unicornLocationService.createLocationItem(unicornLocation);
 
             return new APIGatewayProxyResponseEvent()
                     .withStatusCode(200)

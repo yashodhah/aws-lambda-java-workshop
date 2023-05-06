@@ -1,4 +1,4 @@
-package com.unicorn.location.model;
+package com.unicorn.location;
 
 
 public class UnicornLocation {

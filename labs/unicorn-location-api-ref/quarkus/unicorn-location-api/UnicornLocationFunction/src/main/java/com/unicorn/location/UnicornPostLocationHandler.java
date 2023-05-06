@@ -16,7 +16,8 @@ public class UnicornPostLocationHandler implements RequestHandler<APIGatewayProx
 
     @Inject
     LocationService locationService;
-    public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
+
+    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
         try {
             UnicornLocation unicornLocation = JSON.std.beanFrom(UnicornLocation.class, input.getBody());
             locationService.createLocationItem(unicornLocation);
